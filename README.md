@@ -15,10 +15,20 @@ Agora o programa deve escrever ‘Fizz’ os números divisíveis por 3 ou conte
 E deve escrever ‘Buzz’ os números divisíveis por 5 ou conter um 5.
 E deve escrever ‘FizzBuzz’ os números divisíveis por 5 e 3 ou conter um 5 e 3.
 
-## Run
+## Instalação de Pacotes Gerais
+
+npm install -g jasmine
+
+npm install -g karma-cli
+
+npm install http-server -g
+
+## Instalação dependências do projeto
 
 bower install
 
 npm install
+
+## Rodar Testes de Unidade
 
 karma start
