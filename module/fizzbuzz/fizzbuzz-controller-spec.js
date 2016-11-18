@@ -9,14 +9,6 @@ describe('#FIZZBUZZController', function() {
     $controller = _$controller_;
   }));
 
-  describe('vm.listar1A100', function() {
-    it('deve retornar uma lista com tamanho de 100 itens', function() {
-      var controller = $controller('FizzBuzzController');
-      var lista = controller.listar1A100();
-      expect(lista.length).toEqual(100);
-    });
-  });
-
 describe('vm.divisivelPor3', function() {
   it('deve retornar true se o param=18 (número é divisivel por 3)', function() {
     var controller = $controller('FizzBuzzController');
@@ -24,7 +16,6 @@ describe('vm.divisivelPor3', function() {
     expect(result).toEqual(true);
   });
 });
-
 describe('vm.divisivelPor5', function() {
   it('deve retornar true se o param=25 (número é divisivel por 5)', function() {
     var controller = $controller('FizzBuzzController');
@@ -39,6 +30,48 @@ describe('vm.divisivelPor3E5', function() {
     var result = controller.divisivelPor3E5(15);
     expect(result).toEqual(true);
   });
+});
+
+describe('vm.contem3', function() {
+it('deve retornar true se o numero tiver um 3', function (){
+  var controller = $controller('FizzBuzzController');
+  var result = controller.contem3(3);
+  expect(result).toEqual(true);
+});
+
+it('deve retornar false se ele não contém 3', function (){
+  var controller = $controller('FizzBuzzController');
+  var result = controller.contem3(4);
+  expect(result).toEqual(false);
+});
+});
+
+describe('vm.contem5', function() {
+it('deve retornar "true" se o numero tiver um 5', function (){
+  var controller = $controller('FizzBuzzController');
+  var result = controller.contem5(5);
+  expect(result).toEqual(true);
+});
+
+it('deve retornar "false" se ele não contém 5', function (){
+  var controller = $controller('FizzBuzzController');
+  var result = controller.contem5(4);
+  expect(result).toEqual(false);
+});
+});
+
+describe('vm.contem3e5', function() {
+it('deve retornar "true" se o numero conter um 3 e 5', function (){
+  var controller = $controller('FizzBuzzController');
+  var result = controller.contem3e5(35);
+  expect(result).toEqual(true);
+});
+
+it('deve retornar o "false" se ele não contém 3 e 5', function (){
+  var controller = $controller('FizzBuzzController');
+  var result = controller.contem3e5(34);
+  expect(result).toEqual(false);
+});
 });
 
 describe('vm.fizzOrBuzzOrFizzBuzz', function() {
@@ -66,44 +99,33 @@ describe('vm.fizzOrBuzzOrFizzBuzz', function() {
     expect(result).toEqual('FizzBuzz');
   });
 
+  it('deve retornar "Fizz" se o param conter 3', function(){
+      var controller = $controller('FizzBuzzController');
+      var result = controller.fizzOrBuzzOrFizzBuzz(13);
+      expect(result).toEqual('Fizz');
+  });
+
+  it('deve retornar "Buzz" se o param conter 5', function(){
+      var controller = $controller('FizzBuzzController');
+      var result = controller.fizzOrBuzzOrFizzBuzz(51);
+      expect(result).toEqual('Buzz');
+  });
+
+  it('deve retornar "FizzBuzz" se o param conter 5 e 3', function(){
+      var controller = $controller('FizzBuzzController');
+      var result = controller.fizzOrBuzzOrFizzBuzz(53);
+      expect(result).toEqual('FizzBuzz');
+  });
+
 });
 
-
-/*
-
-  //example 1
-  it('deve definir myName como Paulo Henrique', inject(function ($controller) {
-    var scope = {};
-    var ctrl = $controller('FizzBuzzController', { $scope: scope });
-
-    expect(ctrl.myName).toBe('Paulo Henrique');
-  }));
-
-  //example 2
-  describe('vm.complexidadeSenha', function() {
-    it('deve retornar "forte" se o comprimento da senha for > 8 caracteres', function() {
-      //var $scope = {};
+ /*Deve ser o último teste, pois essa função chama todas as demais*/
+  describe('vm.listar1A100', function() {
+    it('deve retornar uma lista com tamanho de 100 itens', function() {
       var controller = $controller('FizzBuzzController');
-      controller.password = 'longerthaneightchars';
-      controller.complexidadeSenha();
-      expect(controller.strength).toEqual('forte');
-
+      var lista = controller.listar1A100();
+      expect(lista.length).toEqual(100);
     });
   });
-
-  //example 3
-  describe('vm.somaDoisNumeros', function() {
-    it('deve retornar "2" ao informar param(1)=1 e param(2)=1', function() {
-      //var $scope = {};
-      var controller = $controller('FizzBuzzController');
-      var result = controller.somaDoisNumeros(1, 1);
-      expect(result).toEqual(2);
-
-
-    });
-  });
-
-  */
-
 
 });
